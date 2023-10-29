@@ -90,7 +90,8 @@ const Input = styled.input`
 
 const PasswordVisibilityToggle = styled.button`
   position: relative;
-  left: 35%;
+  width: 2rem;
+  right: -82%;
   bottom: 2.5rem;
   background: transparent;
   border: none;
@@ -115,6 +116,7 @@ const CheckBoxDiv1 = styled.div`
   display: flex;
   flex-direction: row;
   gap: 0.2rem;
+  margin: -2rem 0 0 0;
 `;
 const CheckBoxDiv2 = styled.div`
   display: flex;
@@ -182,13 +184,13 @@ const Login = () => {
           />
           <PasswordVisibilityToggle onClick={togglePasswordVisibility}>
             {showPassword ? (
-              <div>
+              <>
                 <VisibilityIcon />
-              </div>
+              </>
             ) : (
-              <div>
+              <>
                 <VisibilityOffIcon />
-              </div>
+              </>
             )}
           </PasswordVisibilityToggle>
         </LoginCredDiv>
@@ -201,7 +203,7 @@ const Login = () => {
             <CheckBoxDiv2>
               <input type="checkbox" />
               <p>
-                Agree to <SpanTerm>terms &onditions</SpanTerm>
+                Agree to <SpanTerm>terms & Conditions</SpanTerm>
               </p>
             </CheckBoxDiv2>
           </CheckCondition>
@@ -211,7 +213,7 @@ const Login = () => {
         </ConditionDiv>
         <SubmitButton type="submit">Submit</SubmitButton>
         <SignUpDiv>
-          Dont have an account?<SpanRegister> Register Here</SpanRegister>
+          Don't have an account?<SpanRegister> Register Here</SpanRegister>
         </SignUpDiv>
       </LoginForm>
     </LoginContainer>
