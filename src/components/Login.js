@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import imgSvg from "./img.svg";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 
 const LoginContainer = styled.div`
   display: flex;
@@ -83,6 +85,16 @@ const Input = styled.input`
   margin: 10px 0 10px 0;
   border: 1px solid #ddd;
   border-radius: 5px;
+  position: relative;
+`;
+
+const PasswordVisibilityToggle = styled.button`
+  position: relative;
+  left: 35%;
+  bottom: 2.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 `;
 
 const ConditionDiv = styled.div`
@@ -145,6 +157,12 @@ const SpanRegister = styled.span`
 `;
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = (event) => {
+    event.preventDefault();
+    setShowPassword(!showPassword);
+  };
+
   return (
     <LoginContainer>
       <LoginDiv>
@@ -158,7 +176,21 @@ const Login = () => {
         </LoginCredDiv>
         <LoginCredDiv>
           Password
-          <Input type="password" placeholder="Password" />
+          <Input
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+          />
+          <PasswordVisibilityToggle onClick={togglePasswordVisibility}>
+            {showPassword ? (
+              <div>
+                <VisibilityIcon />
+              </div>
+            ) : (
+              <div>
+                <VisibilityOffIcon />
+              </div>
+            )}
+          </PasswordVisibilityToggle>
         </LoginCredDiv>
         <ConditionDiv>
           <CheckCondition>
